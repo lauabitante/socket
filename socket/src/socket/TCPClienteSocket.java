@@ -15,18 +15,22 @@ public class TCPClienteSocket {
         Socket socketCliente = null;
         try {
         	//instancia socketcliente / canal de comunicação -  na porta 6789 - agora ele existe
-            socketCliente = new Socket("192.168.1.237", 6789);
+            socketCliente = new Socket("localhost", 6789);
             System.out.println("Conectado ao Servidor!");
             //cliente escreve no buffer
             DataInputStream dis = new DataInputStream(
                     socketCliente.getInputStream());
-            //cliente escreve oq vai enviar para o servidor, o servidor fara algo e devolverá
+            //cliente escreve oq vai enviar para o servidor, o servidor fará algo e devolverá
             DataOutputStream dos = new DataOutputStream(
                     socketCliente.getOutputStream());
             
             String nome = JOptionPane.showInputDialog("Nome: ");
             dos.writeUTF(nome);
             System.out.println("Enviando "+nome);
+            
+//            String n = JOptionPane.showInputDialog("Número: ");
+//            dos.writeInt(Integer.parseInt(n));
+//            System.out.println("Enviando... "+n);
             
             String mensagem = dis.readUTF();
             System.out.println("Mensagem recebida: "+mensagem);
