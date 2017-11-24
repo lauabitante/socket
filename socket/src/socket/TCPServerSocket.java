@@ -12,7 +12,7 @@ public class TCPServerSocket {
 	static String resposta;
     public static void main(String[] args) {
 
-    	do {
+//    	do {
     		ServerSocket serverSocket = null;
             Socket listenSocket = null;
             try {
@@ -24,12 +24,6 @@ public class TCPServerSocket {
                         listenSocket.getInputStream());
                 DataOutputStream dos = new DataOutputStream(
                         listenSocket.getOutputStream());
-                
-//                String nome = dis.readUTF();
-//                System.out.println("Recebido "+nome);
-//                String hello = "Hello "+nome;
-//                dos.writeUTF(hello);            
-//                System.out.println("Enviado "+hello);
                 
                 String n = dis.readUTF();
                 int num = Integer.parseInt(n);
@@ -51,7 +45,7 @@ public class TCPServerSocket {
                     }
                 }
             }
-    	}
-    	while(true);
+//    	}
+//    	while(true);
     }
 }

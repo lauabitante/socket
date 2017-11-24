@@ -8,7 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
 public class TCPClienteSocket {
 
     public static void main(String[] args) {
@@ -24,18 +23,13 @@ public class TCPClienteSocket {
             DataOutputStream dos = new DataOutputStream(
                     socketCliente.getOutputStream());
             
-            String nome = JOptionPane.showInputDialog("Nome: ");
+            String nome = JOptionPane.showInputDialog("Número: ");
             dos.writeUTF(nome);
             System.out.println("Enviando "+nome);
             
-//            String n = JOptionPane.showInputDialog("Número: ");
-//            dos.writeInt(Integer.parseInt(n));
-//            System.out.println("Enviando... "+n);
-            
             String mensagem = dis.readUTF();
-            System.out.println("Mensagem recebida: "+mensagem);
+            System.out.println("Número recebido: "+mensagem);
             JOptionPane.showMessageDialog(null, mensagem);
-            
             
         } catch (IOException ex) {
             Logger.getLogger(TCPClienteSocket.class.getName()).log(Level.SEVERE, null, ex);
